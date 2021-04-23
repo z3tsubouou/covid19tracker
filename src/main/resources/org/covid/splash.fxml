@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.covid.controller.SplashController">
+   <StackPane prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+         <viewport>
+            <Rectangle2D height="720.0" width="1280.0" />
+         </viewport>
+         <Image url="@images/macOSBigSur.jpg" />
+      </ImageView>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <Label text="Тавтай морил" textFill="WHITE" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="50.0">
+            <font>
+               <Font name="System Bold" size="43.0" />
+            </font>
+         </Label>
+         <Label text="Хийж гүйцэтгэсэн" textFill="WHITE" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="100.0">
+            <font>
+               <Font name="System Bold" size="28.0" />
+            </font>
+         </Label>
+         <Label layoutX="10.0" layoutY="10.0" text="А. Давгацэрэн" textFill="WHITE" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="130.0">
+            <font>
+               <Font name="System Bold" size="26.0" />
+            </font>
+         </Label>
+         <Label layoutX="10.0" layoutY="10.0" text="Г. Бүжинлхам" textFill="WHITE" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="160.0">
+            <font>
+               <Font name="System Bold" size="26.0" />
+            </font>
+         </Label>
+      </AnchorPane>
+   </StackPane>
+</AnchorPane>

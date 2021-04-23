@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.covid.controller.CountryController">
+    <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <VBox prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: #448FFF;">
+            <effect>
+                <DropShadow />
+            </effect>
+            <AnchorPane prefHeight="620.0" prefWidth="250.0">
+                <VBox alignment="TOP_CENTER" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <Label prefHeight="150.0" prefWidth="250.0" text="Covid 19 tracker" textAlignment="CENTER" wrapText="true">
+                        <font>
+                            <Font name="System Bold" size="39.0" />
+                        </font>
+                    </Label>
+                    <Button mnemonicParsing="false" onAction="#globeHandler" prefHeight="100.0" prefWidth="250.0" style="-fx-background-color: #448FFF;" text="Дэлхийн" textFill="WHITE">
+                        <font>
+                            <Font size="20.0" />
+                        </font>
+                        <cursor>
+                            <Cursor fx:constant="OPEN_HAND" />
+                        </cursor>
+                    </Button>
+                    <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="250.0" style="-fx-background-color: #448FFF;" text="Улсаар" textFill="WHITE">
+                        <font>
+                            <Font size="20.0" />
+                        </font>
+                        <effect>
+                            <DropShadow offsetY="3.0" radius="4.75" width="0.0" />
+                        </effect>
+                        <cursor>
+                            <Cursor fx:constant="OPEN_HAND" />
+                        </cursor>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#reviewHandler" prefHeight="100.0" prefWidth="250.0" style="-fx-background-color: #448FFF;" text="Санал хүсэлт" textFill="WHITE">
+                        <font>
+                            <Font size="20.0" />
+                        </font>
+                        <cursor>
+                            <Cursor fx:constant="OPEN_HAND" />
+                        </cursor>
+                    </Button>
+                </VBox>
+            </AnchorPane>
+            <AnchorPane prefHeight="100.0" prefWidth="250.0">
+                <Button mnemonicParsing="false" onAction="#logoutHandler" style="-fx-background-color: transparent;" text="Гарах" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="0.0">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                            <Image url="@images/logout.png" />
+                        </ImageView>
+                    </graphic>
+                    <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                    </cursor>
+                </Button>
+            </AnchorPane>
+        </VBox>
+        <AnchorPane prefHeight="720.0" prefWidth="1030.0">
+            <VBox spacing="30.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0">
+                <HBox alignment="CENTER" spacing="20.0">
+                    <StackPane alignment="BOTTOM_CENTER">
+                        <AnchorPane>
+                            <AnchorPane prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: #B072FF; -fx-background-radius: 10;">
+                                <effect>
+                                    <DropShadow height="20.0" offsetY="2.0" radius="5.75" width="5.0" />
+                                </effect>
+                            </AnchorPane>
+                        </AnchorPane>
+                        <AnchorPane>
+                            <AnchorPane prefHeight="180.0" prefWidth="250.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+                                <effect>
+                                    <DropShadow radius="6.0" width="5.0" />
+                                </effect>
+                                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <Label text="Туссан">
+                                        <font>
+                                            <Font name="System Bold" size="22.0" />
+                                        </font>
+                                        <VBox.margin>
+                                            <Insets />
+                                        </VBox.margin>
+                                    </Label>
+                                    <Label fx:id="infected" text="0" underline="true">
+                                        <font>
+                                            <Font size="18.0" />
+                                        </font>
+                                    </Label>
+                           <Label text="Шинэ">
+                              <font>
+                                 <Font name="System Bold" size="18.0" />
+                              </font>
+                           </Label>
+                           <Label fx:id="newInfected" text="0" underline="true">
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </Label>
+                                    <Label fx:id="infectedDate" text="Date">
+                                        <font>
+                                            <Font size="15.0" />
+                                        </font>
+                                    </Label>
+                                </VBox>
+                            </AnchorPane>
+                        </AnchorPane>
+                    </StackPane>
+                    <StackPane alignment="BOTTOM_CENTER">
+                        <AnchorPane>
+                            <AnchorPane prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: #97FF86; -fx-background-radius: 10;">
+                                <effect>
+                                    <DropShadow height="20.0" offsetY="2.0" radius="5.75" width="5.0" />
+                                </effect>
+                            </AnchorPane>
+                        </AnchorPane>
+                        <AnchorPane>
+                            <AnchorPane prefHeight="180.0" prefWidth="250.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+                                <effect>
+                                    <DropShadow radius="6.0" width="5.0" />
+                                </effect>
+                                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <Label text="Эдгэрсэн">
+                                        <font>
+                                            <Font name="System Bold" size="22.0" />
+                                        </font>
+                                        <VBox.margin>
+                                            <Insets />
+                                        </VBox.margin>
+                                    </Label>
+                                    <Label fx:id="recovered" text="0" underline="true">
+                                        <font>
+                                            <Font size="18.0" />
+                                        </font>
+                                    </Label>
+                           <Label text="Шинэ">
+                              <font>
+                                 <Font name="System Bold" size="18.0" />
+                              </font>
+                           </Label>
+                           <Label fx:id="newRecovered" text="0" underline="true">
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </Label>
+                                    <Label fx:id="recoveredDate" text="Date">
+                                        <font>
+                                            <Font size="15.0" />
+                                        </font>
+                                    </Label>
+                                </VBox>
+                            </AnchorPane>
+                        </AnchorPane>
+                    </StackPane>
+                    <StackPane alignment="BOTTOM_CENTER">
+                        <AnchorPane>
+                            <AnchorPane prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: #FF8585; -fx-background-radius: 10;">
+                                <effect>
+                                    <DropShadow height="20.0" offsetY="2.0" radius="5.75" width="5.0" />
+                                </effect>
+                            </AnchorPane>
+                        </AnchorPane>
+                        <AnchorPane>
+                            <AnchorPane prefHeight="180.0" prefWidth="250.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+                                <effect>
+                                    <DropShadow radius="6.0" width="5.0" />
+                                </effect>
+                                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <Label text="Нас барсан">
+                                        <font>
+                                            <Font name="System Bold" size="22.0" />
+                                        </font>
+                                        <VBox.margin>
+                                            <Insets />
+                                        </VBox.margin>
+                                    </Label>
+                                    <Label fx:id="deaths" text="0" underline="true">
+                                        <font>
+                                            <Font size="18.0" />
+                                        </font>
+                                    </Label>
+                           <Label text="Шинэ">
+                              <font>
+                                 <Font name="System Bold" size="18.0" />
+                              </font>
+                           </Label>
+                           <Label fx:id="newDeaths" text="0" underline="true">
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </Label>
+                                    <Label fx:id="deathsDate" text="Date">
+                                        <font>
+                                            <Font size="15.0" />
+                                        </font>
+                                    </Label>
+                                </VBox>
+                            </AnchorPane>
+                        </AnchorPane>
+                    </StackPane>
+                </HBox>
+                <HBox alignment="BOTTOM_CENTER" spacing="30.0">
+                    <LineChart fx:id="lineChart" styleClass="chart-series-line" stylesheets="@css/lineChart.css">
+                        <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis side="LEFT" />
+                        </yAxis>
+                    </LineChart>
+                    <VBox alignment="BOTTOM_CENTER" prefWidth="200.0" spacing="20.0">
+                        <TextField fx:id="countryCode" prefHeight="50.0" promptText="Улсын код" style="-fx-background-radius: 10;" text="mn">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </TextField>
+                        <Button mnemonicParsing="false" onAction="#searchHandler" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #1D33FF; -fx-background-radius: 10;" text="Хайх" textAlignment="CENTER" textFill="WHITE">
+                            <font>
+                                <Font size="26.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="OPEN_HAND" />
+                            </cursor>
+                            <effect>
+                                <DropShadow offsetY="2.0" />
+                            </effect>
+                        </Button>
+                    </VBox>
+                </HBox>
+            </VBox>
+        </AnchorPane>
+    </HBox>
+</AnchorPane>

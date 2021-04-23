@@ -1,0 +1,11 @@
+/home/davgatseren/IdeaProjects/covid19tracker/src/main/java/module-info.java
+/home/davgatseren/IdeaProjects/covid19tracker/src/main/java/org/covid/controller/CountryController.java
+/home/davgatseren/IdeaProjects/covid19tracker/src/main/java/org/covid/model/User.java
+/home/davgatseren/IdeaProjects/covid19tracker/src/main/java/org/covid/controller/RegisterController.java
+/home/davgatseren/IdeaProjects/covid19tracker/src/main/java/org/covid/controller/ReviewController.java
+/home/davgatseren/IdeaProjects/covid19tracker/src/main/java/org/covid/db/ConnectionClass.java
+/home/davgatseren/IdeaProjects/covid19tracker/src/main/java/org/covid/App.java
+/home/davgatseren/IdeaProjects/covid19tracker/src/main/java/org/covid/controller/HomeController.java
+/home/davgatseren/IdeaProjects/covid19tracker/src/main/java/org/covid/controller/SplashController.java
+/home/davgatseren/IdeaProjects/covid19tracker/src/main/java/org/covid/controller/LoginController.java
+/home/davgatseren/IdeaProjects/covid19tracker/src/main/java/org/covid/controller/EncryptDecrypt.java

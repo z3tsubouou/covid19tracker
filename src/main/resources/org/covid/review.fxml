@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.covid.controller.ReviewController">
+    <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <VBox prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: #448FFF;">
+            <effect>
+                <DropShadow />
+            </effect>
+            <AnchorPane prefHeight="620.0" prefWidth="250.0">
+                <VBox alignment="TOP_CENTER" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <Label prefHeight="150.0" prefWidth="250.0" text="Covid 19 tracker" textAlignment="CENTER" wrapText="true">
+                        <font>
+                            <Font name="System Bold" size="39.0" />
+                        </font>
+                    </Label>
+                    <Button mnemonicParsing="false" onAction="#globeHandler" prefHeight="100.0" prefWidth="250.0" style="-fx-background-color: #448FFF;" text="Дэлхийн" textFill="WHITE">
+                        <font>
+                            <Font size="20.0" />
+                        </font>
+                        <cursor>
+                            <Cursor fx:constant="OPEN_HAND" />
+                        </cursor>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#countryHandler" prefHeight="100.0" prefWidth="250.0" style="-fx-background-color: #448FFF;" text="Улсаар" textFill="WHITE">
+                        <font>
+                            <Font size="20.0" />
+                        </font>
+                        <cursor>
+                            <Cursor fx:constant="OPEN_HAND" />
+                        </cursor>
+                    </Button>
+                    <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="250.0" style="-fx-background-color: #448FFF;" text="Санал хүсэлт" textFill="WHITE">
+                        <font>
+                            <Font size="20.0" />
+                        </font>
+                        <effect>
+                            <DropShadow offsetY="3.0" radius="4.75" width="0.0" />
+                        </effect>
+                        <cursor>
+                            <Cursor fx:constant="OPEN_HAND" />
+                        </cursor>
+                    </Button>
+                </VBox>
+            </AnchorPane>
+            <AnchorPane prefHeight="100.0" prefWidth="250.0">
+                <Button mnemonicParsing="false" onAction="#logoutHandler" style="-fx-background-color: transparent;" text="Гарах" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="0.0">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                            <Image url="@images/logout.png" />
+                        </ImageView>
+                    </graphic>
+                    <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                    </cursor>
+                </Button>
+            </AnchorPane>
+        </VBox>
+        <AnchorPane prefHeight="720.0" prefWidth="1030.0">
+            <VBox spacing="20.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0">
+                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                    <Label text="Хүсэлт илгээх">
+                        <font>
+                            <Font size="35.0" />
+                        </font>
+                    </Label>
+                </AnchorPane>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                    <TextField fx:id="name" prefHeight="50.0" prefWidth="250.0" promptText="Нэр" style="-fx-background-radius: 10;">
+                        <effect>
+                            <InnerShadow height="42.25" offsetY="6.0" radius="10.0625" width="0.0">
+                                <color>
+                                    <Color opacity="0.21610169112682343" />
+                                </color>
+                            </InnerShadow>
+                        </effect>
+                  <font>
+                     <Font size="23.0" />
+                  </font>
+                    </TextField>
+                </AnchorPane>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                    <TextField fx:id="mail" prefHeight="50.0" prefWidth="250.0" promptText="Майл" style="-fx-background-radius: 10;">
+                        <effect>
+                            <InnerShadow height="42.25" offsetY="6.0" radius="10.0625" width="0.0">
+                                <color>
+                                    <Color opacity="0.21610169112682343" />
+                                </color>
+                            </InnerShadow>
+                        </effect>
+                  <font>
+                     <Font size="23.0" />
+                  </font>
+                    </TextField>
+                </AnchorPane>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                    <TextArea fx:id="comment" prefHeight="200.0" prefWidth="600.0" promptText="Сэтгэгдэл">
+                  <font>
+                     <Font size="23.0" />
+                  </font></TextArea>
+                </AnchorPane>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                    <Button onAction="#sendHandler" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #1D33FF; -fx-background-radius: 10;" text="Илгээх" textAlignment="CENTER" textFill="WHITE">
+                        <font>
+                            <Font size="26.0" />
+                        </font>
+                        <cursor>
+                            <Cursor fx:constant="OPEN_HAND" />
+                        </cursor>
+                        <effect>
+                            <DropShadow offsetY="2.0" />
+                        </effect>
+                    </Button>
+                </AnchorPane>
+            </VBox>
+        </AnchorPane>
+    </HBox>
+</AnchorPane>

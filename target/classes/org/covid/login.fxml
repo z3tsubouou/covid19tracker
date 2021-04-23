@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#keyHandler" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.covid.controller.LoginController">
+   <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane prefWidth="475.0" style="-fx-background-color: #448FFF;">
+         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="25.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <padding>
+               <Insets left="100.0" right="100.0" />
+            </padding>
+            <Label text="Covid 19 tracker" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
+            <TextField fx:id="mail" prefHeight="50.0" promptText="Майл" style="-fx-background-radius: 10;">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+            <PasswordField fx:id="password" prefHeight="50.0" promptText="Нууц үг" style="-fx-background-radius: 10;">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </PasswordField>
+            <Button mnemonicParsing="false" onAction="#loginHandler" prefHeight="50.0" prefWidth="200.0" style="-fx-background-radius: 10; -fx-background-color: #1D33FF;" text="Нэвтрэх" textFill="WHITE">
+               <font>
+                  <Font size="22.0" />
+               </font>
+               <effect>
+                  <DropShadow height="15.0" offsetY="2.0" radius="5.75" width="10.0" />
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#switchToRegister" prefWidth="200.0" style="-fx-background-radius: 10; -fx-background-color: transparent;" text="Бүртгүүлэх">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+            </Button>
+         </VBox>
+      </AnchorPane>
+      <AnchorPane prefWidth="805.0" style="-fx-background-image: url(images/back.jpg);">
+         <ImageView fitHeight="720.0" fitWidth="805.0" pickOnBounds="true" preserveRatio="true">
+            <viewport>
+               <Rectangle2D height="720.0" minX="800.0" minY="399.0" width="805.0" />
+            </viewport>
+            <Image url="@images/covid-cells.jpg" />
+         </ImageView>
+      </AnchorPane>
+   </HBox>
+</AnchorPane>
