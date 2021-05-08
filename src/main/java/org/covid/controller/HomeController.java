@@ -51,7 +51,7 @@ public class HomeController {
     private void initialize() throws InterruptedException {
         client = new OkHttpClient();
         this.parentStage = App.returnStage();
-        sendRequest();
+        sendRequestAndSetLineChartData();
         lineChart.setTitle("Түүх");
     }
 
@@ -59,7 +59,7 @@ public class HomeController {
      *Хүсэлт илгээх функ болон мэдэгдэл хэрэглэгчид харуулах функц
      * @throws InterruptedException алдаа гарахад throw хийх төрөл
      */
-    private void sendRequest() throws InterruptedException {
+    private void sendRequestAndSetLineChartData() throws InterruptedException {
         final Request request = new Request.Builder().url(BASE_URL + "/timeline").build();
         final Call call = client.newCall(request);
 
@@ -126,24 +126,24 @@ public class HomeController {
             List < Integer > deathsArray = JsonPath.read(res, "$.data[*].deaths");
             List < String > deathsDateArray = JsonPath.read(res, "$.data[*].date");
 
-            XYChart.Series series = new XYChart.Series();
-            series.setName("Infected");
+            XYChart.Series seriesInfected = new XYChart.Series();
+            seriesInfected.setName("Infected");
 
-            XYChart.Series series1 = new XYChart.Series();
-            series1.setName("Recovered");
+            XYChart.Series seriesRecovered = new XYChart.Series();
+            seriesRecovered.setName("Recovered");
 
-            XYChart.Series series2 = new XYChart.Series();
-            series2.setName("Deaths");
+            XYChart.Series seriesDeaths = new XYChart.Series();
+            seriesDeaths.setName("Deaths");
 
             for (int i = infectedArray.size() - 120; i < infectedArray.size(); i++) {
-                series.getData().add(new XYChart.Data(infectedDateArray.get(infectedArray.size() - i), infectedArray.get(infectedArray.size() - i)));
-                series1.getData().add(new XYChart.Data(recoveredDateArray.get(infectedArray.size() - i), recoveredArray.get(infectedArray.size() - i)));
-                series2.getData().add(new XYChart.Data(deathsDateArray.get(infectedArray.size() - i), deathsArray.get(infectedArray.size() - i)));
+                seriesInfected.getData().add(new XYChart.Data(infectedDateArray.get(infectedArray.size() - i), infectedArray.get(infectedArray.size() - i)));
+                seriesRecovered.getData().add(new XYChart.Data(recoveredDateArray.get(infectedArray.size() - i), recoveredArray.get(infectedArray.size() - i)));
+                seriesDeaths.getData().add(new XYChart.Data(deathsDateArray.get(infectedArray.size() - i), deathsArray.get(infectedArray.size() - i)));
             }
 
-            lineChart.getData().add(series);
-            lineChart.getData().add(series1);
-            lineChart.getData().add(series2);
+            lineChart.getData().add(seriesInfected);
+            lineChart.getData().add(seriesRecovered);
+            lineChart.getData().add(seriesDeaths);
         }
 
     }

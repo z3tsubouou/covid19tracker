@@ -7,6 +7,7 @@ module org.covid {
     requires java.sql;
     requires mysql.connector.java;
     requires commons.validator;
+    requires log4j;
 
     opens org.covid to javafx.fxml;
     exports org.covid;

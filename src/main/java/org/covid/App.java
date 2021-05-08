@@ -14,6 +14,8 @@ import org.covid.model.User;
 import java.io.IOException;
 import java.util.Optional;
 
+import org.apache.log4j.Logger;
+
 /**
  * Програм эхлүүлэх класс
  * @author Бүжинлхам
@@ -23,6 +25,7 @@ public class App extends Application {
     private static Scene scene;
     private static Stage mainStage;
     public static User user;
+    public static Logger logger = Logger.getLogger(App.class);
 
     /**
      *програм эхэлхэд ажиллах функцийг дахин бичиж эхэлж харуулах fxml файл болон stage-ийг бэлдэж байна.
@@ -31,6 +34,7 @@ public class App extends Application {
      */
     @Override
     public void start(Stage stage) throws IOException {
+        logger.debug("Program ajillasan !!");
         mainStage = stage;
         scene = new Scene(loadFXML("splash"));
         mainStage.setScene(scene);
@@ -94,8 +98,10 @@ public class App extends Application {
         Optional < ButtonType > res = alert.showAndWait();
         if (res.isPresent()) {
             if (res.get().getButtonData().equals(ButtonBar.ButtonData.CANCEL_CLOSE)) {
+                logger.info("Programmaas garahaa bolison !!");
                 event.consume();
             } else {
+                logger.info("Programmaas garsan !!");
                 System.exit(0);
             }
         }

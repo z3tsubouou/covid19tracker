@@ -58,14 +58,17 @@ public class LoginController extends EncryptDecrypt {
             alert.setTitle("Өгөгдөл буруу");
             alert.setContentText("Хоосон майл оруулж болохгүй!!");
             alert.showAndWait();
+            App.logger.info("Mail hooson oruulsan!!");
         } else if (!EmailValidator.getInstance().isValid(App.user.getMail())) {
             alert.setTitle("Өгөгдөл буруу");
             alert.setContentText("Майл оруулна уу!!");
             alert.showAndWait();
+            App.logger.info("Mail buruu oruulsan !!");
         } else if (App.user.getPassword().isEmpty()) {
             alert.setTitle("Өгөгдөл буруу");
             alert.setContentText("Хоосон нууц үг оруулж болохгүй!!");
             alert.showAndWait();
+            App.logger.info("Password hooson oruuslan!!");
         } else {
             ConnectionClass connect = new ConnectionClass();
             Connection connectDB = connect.getConnection();

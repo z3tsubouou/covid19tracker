@@ -1,4 +1,6 @@
 package org.covid.db;
+import org.covid.App;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 
@@ -20,9 +22,10 @@ public class ConnectionClass {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             databaseLink = DriverManager.getConnection("jdbc:mysql://" + dbServer + dbName, uName, uPassword);
-
+            App.logger.info("Ugugdliin santai holbogdson !!");
         } catch (Exception e) {
             e.printStackTrace();
+            App.logger.warn("Ugugdliin santai holbohdoj chadaagui !!");
         }
 
         return databaseLink;

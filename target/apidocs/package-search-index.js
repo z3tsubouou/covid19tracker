@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"m":"org.covid","l":"org.covid"},{"m":"org.covid","l":"org.covid.controller"},{"m":"org.covid","l":"org.covid.db"},{"m":"org.covid","l":"org.covid.model"}];updateSearchResults();

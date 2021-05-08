@@ -55,7 +55,7 @@ public class CountryController {
     private void initialize() throws InterruptedException {
         client = new OkHttpClient();
         this.parentStage = App.returnStage();
-        sendRequest("mn");
+        sendRequestAndSetLineChartData("mn");
         lineChart.setTitle("Түүх");
     }
 
@@ -64,7 +64,7 @@ public class CountryController {
      * @param code улсын ISO код
      * @throws InterruptedException алдаа гарахад throw хийх төрөл
      */
-    private void sendRequest(String code) throws InterruptedException {
+    private void sendRequestAndSetLineChartData(String code) throws InterruptedException {
         final Request request = new Request.Builder().url(BASE_URL + "/countries/" + code + "?include=timeline").build();
         final Call call = client.newCall(request);
 
@@ -79,8 +79,11 @@ public class CountryController {
                 try (ResponseBody responseBody = response.body()) {
                     assert responseBody != null;
                     res = responseBody.string();
+                    App.logger.info("Huseltiig amjilttai unshsan !!");
                 } catch (IOException e) {
                     e.printStackTrace();
+                    App.logger.warn("Huseltiig awch chaagui!!");
+
                 }
             }
 
@@ -132,27 +135,27 @@ public class CountryController {
             List < Integer > deathsArray = JsonPath.read(res, "$.data.timeline[*].deaths");
             List < String > deathsDateArray = JsonPath.read(res, "$.data.timeline[*].date");
 
-            XYChart.Series series = new XYChart.Series();
-            series.setName("Infected");
+            XYChart.Series seriesInfected = new XYChart.Series();
+            seriesInfected.setName("Infected");
 
-            XYChart.Series series1 = new XYChart.Series();
-            series1.setName("Recovered");
+            XYChart.Series seriesRecovered = new XYChart.Series();
+            seriesRecovered.setName("Recovered");
 
-            XYChart.Series series2 = new XYChart.Series();
-            series2.setName("Deaths");
+            XYChart.Series seriesDeaths = new XYChart.Series();
+            seriesDeaths.setName("Deaths");
 
             for (int i = infectedArray.size() - 90; i < infectedArray.size(); i++) {
-                series.getData().add(new XYChart.Data(infectedDateArray.get(infectedArray.size() - i), infectedArray.get(infectedArray.size() - i)));
-                series1.getData().add(new XYChart.Data(recoveredDateArray.get(infectedArray.size() - i), recoveredArray.get(infectedArray.size() - i)));
-                series2.getData().add(new XYChart.Data(deathsDateArray.get(infectedArray.size() - i), deathsArray.get(infectedArray.size() - i)));
+                seriesInfected.getData().add(new XYChart.Data(infectedDateArray.get(infectedArray.size() - i), infectedArray.get(infectedArray.size() - i)));
+                seriesRecovered.getData().add(new XYChart.Data(recoveredDateArray.get(infectedArray.size() - i), recoveredArray.get(infectedArray.size() - i)));
+                seriesDeaths.getData().add(new XYChart.Data(deathsDateArray.get(infectedArray.size() - i), deathsArray.get(infectedArray.size() - i)));
             }
 
             lineChart.getData().clear();
             lineChart.getData().removeAll();
             lineChart.getData().removeAll(Collections.singleton(lineChart.getData().setAll()));
-            lineChart.getData().add(series);
-            lineChart.getData().add(series1);
-            lineChart.getData().add(series2);
+            lineChart.getData().add(seriesInfected);
+            lineChart.getData().add(seriesRecovered);
+            lineChart.getData().add(seriesDeaths);
         }
 
     }
@@ -198,7 +201,7 @@ public class CountryController {
             alert.setContentText("Хоосон код оруулж болохгүй!!");
             alert.showAndWait();
         } else {
-            sendRequest(countryCode.getText());
+            sendRequestAndSetLineChartData(countryCode.getText());
         }
     }
 }
